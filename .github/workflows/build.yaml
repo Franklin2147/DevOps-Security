@@ -27,7 +27,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            hhmbroekman/student-app:latest
+            franko2147/student-app:latest
   test:
     name: Test
     runs-on: ubuntu-latest
