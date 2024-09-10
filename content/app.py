@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, make_response
+from flask import Flask, request, redirect, make_response, Response
 import sqlite3
 import urllib
 import quoter_templates as templates
@@ -34,7 +34,7 @@ def check_authentication():
 @app.route("/")
 def index():
     quotes = db.execute("select id, text, attribution from quotes order by id").fetchall()
-    return templates.main_page(quotes, request.user_id, request.args.get('error'))
+    return Response(quotes, request.user_id, request.args.get('error'))
 
 
 # The quote comments page
@@ -79,7 +79,7 @@ def signin():
             user_id = cursor.lastrowid
     
     response = make_response(redirect('/'))
-    response.set_cookie('user_id', str(user_id))
+    response.set_cookie('user_id', str(user_id), secure=True, httponly=True, samesite='Lax')
     return response
 
 
