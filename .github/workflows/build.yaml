@@ -51,7 +51,7 @@ jobs:
           write-comment: true
           github-token: ${{ secrets.PersonalAccessToken }} # to be able to write the comment
           exit-code: true
-          exit-on: ignore
+          exit-on: policy
 
   test:
     name: Test
