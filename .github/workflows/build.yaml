@@ -50,8 +50,8 @@ jobs:
           ignore-unchanged: false
           write-comment: true
           github-token: ${{ secrets.PersonalAccessToken }} # to be able to write the comment
-          #exit-code: true
-          #exit-on: vulnerability
+          exit-code: false # set to true to fail at vulnerability
+          exit-on: vulnerability
 
   test:
     name: Test
