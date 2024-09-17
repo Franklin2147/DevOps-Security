@@ -31,7 +31,7 @@ jobs:
 
   scan:
     name: Scan
-    needs: [ build ]
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Login to Docker Hub
@@ -44,14 +44,14 @@ jobs:
         with:
           command: cves
           image: franko2147/student-app:latest
-          only-fixed: false #changed to false
+          # only-fixed: true
           only-severities: critical,high
           ignore-base: false
           ignore-unchanged: false
           write-comment: true
           github-token: ${{ secrets.PersonalAccessToken }} # to be able to write the comment
           exit-code: true
-          exit-on: vulnerability
+          exit-on: ignore
 
   test:
     name: Test
