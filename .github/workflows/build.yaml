@@ -75,7 +75,7 @@ jobs:
 
   deploy:
     name: Deploy
-    needs: [ test ]
+    needs: test 
     runs-on: self-hosted
     steps:
       - name: Checkout source code
@@ -87,6 +87,7 @@ jobs:
 
   automated-api-tests:
     name: Automated API-tests using Postman
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
