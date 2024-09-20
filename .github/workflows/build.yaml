@@ -85,7 +85,7 @@ jobs:
               sudo kubectl apply -f ${{ github.workspace }}/kubernetes/deployment.yaml --force
               sudo kubectl apply -f ${{ github.workspace }}/kubernetes/nginx-service.yaml --force
 
-#Make sure port forward in home router is open! OTHERWISE TEST BELOW FAILS.
+#Make sure port forward in home router is open! OTHERWISE TEST BELOW FAILS
   automated-api-tests:
     name: Automated API-tests using Postman
     needs: deploy
