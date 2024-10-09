@@ -1,2 +1,2 @@
 # DevOps Security
-# This is the template repository!
+# This is the template repository
